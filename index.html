@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JQuery Tutorial</title>
+
+  <style type="text/css">
+  .highlight { background-color: yellow; }
+  </style>
+
+  <!-- developer.google.com/speed/libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+
+<h1>Random Stuff</h1>
+
+<p id="p_one"><img src="ntt-logo.png" id="logo2" alt="NTT Logo" height="180" width="180">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <em>Aenean pretium</em>, ipsum quis ultrices aliquet, lacus urna ultrices odio, eu interdum tortor tortor quis ligula. <a href="#">Morbi finibus</a> auctor ipsum vel tempus. Nullam gravida leo ac iaculis pretium. <b>In pretium varius nisi</b>, quis tristique ipsum semper vitae. Mauris eu aliquet odio. Pellentesque tristique sem turpis, id gravida nunc consequat vel. <a href="#">Nullam nec condimentum magna</a>. Sed dignissim interdum risus ac mattis. In hac habitasse platea dictumst. Vivamus placerat tristique vestibulum. Pellentesque quis eleifend nisl. Quisque mollis aliquam enim eu ullamcorper.</p>
+<p id="p_two">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pretium, ipsum quis ultrices aliquet, lacus urna ultrices odio, eu interdum tortor tortor quis ligula. <a href="mailto:derekbanas@verizon.net">Morbi finibus</a> auctor ipsum vel tempus. Nullam gravida leo ac iaculis pretium. In pretium varius nisi, quis tristique ipsum semper vitae. Mauris eu aliquet odio. Pellentesque tristique sem turpis, id <a href="http://google.com">gravida nunc consequat</a> vel. Nullam nec condimentum magna. Sed dignissim interdum risus ac mattis. <a href="http://www.newthinktank.com/wordpress/PersonalityTest.pdf">In hac habitasse</a> platea dictumst. Vivamus placerat tristique vestibulum. Pellentesque quis eleifend nisl. Quisque mollis aliquam enim eu ullamcorper.</p>
+
+<p id="p_three">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <i>Aenean pretium,</i> ipsum quis ultrices aliquet, lacus urna ultrices odio, eu interdum tortor tortor quis ligula.</p>
+
+<table id="tableData">
+<caption>Baseball</caption>
+<thead>
+<tr>
+<td colspan="4">Best Baseball Players</td>
+</tr>
+</thead>
+<tfoot>
+<tr><td colspan="4">* Hall of Fame</td></tr>
+</tfoot>
+<tbody>
+<tr>
+<td></td>
+<td>Average</td>
+<td>RBIs</td>
+<td>Homeruns</td>
+</tr>
+<tr>
+<td><a href="#">Hank Aaron*</a></td>
+<td>.305</td>
+<td>2297</td>
+<td>755</td>
+</tr>
+<tr>
+<td><a href="#">Babe Ruth*</a></td>
+<td>.342</td>
+<td>2214</td>
+<td>714</td>
+</tr>
+<tr>
+<td><a href="#">Barry Bonds</a></td>
+<td>.298</td>
+<td>1996</td>
+<td>762</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="bestSelling">Best Selling Childrens Books</h2>
+
+<ol id="oListTypes">
+<li>Harry Potter
+<ol id="oListIndent">
+<li>and the Sorcerer's Stone</li>
+<li>and the Half-Blood Prince</li>
+<li>and the Chamber of Secrets</li>
+<li>Prisoner of Azkaban</li>
+<li name="best_book">and the Goblet of Fire</li>
+<li>and the Order of the Phoenix</li>
+<li>and the Deathly Hallows</li>
+</ol>
+</li>
+<li>The Very Hungry Caterpillar</li>
+</ol>
+
+<input type="text" id="yourName" size="50">
+
+<input type="text" id="listStuff" size="50"><br />
+
+<input type="text" id="logo" size="50"><br />
+
+<h2 id="trackEvents">Tracking Events</h2>
+
+Mouse Click : X : <input type="text" id="mClickXPos">
+Y : <input type="text" id="mClickYPos"><br />
+
+Mouse Move : X : <input type="text" id="mMoveXPos">
+Y : <input type="text" id="mMoveYPos"><br />
+
+Key Pressed : <input type="text" id="keyPressed"><br />
+
+<span id="formEvent">Form Event</span> : <input type="text" id="inputFormEvent"><br /><br />
+
+<img src="1.jpg" id="accident" alt="accident">
+
+<div id="jsonData"></div>
+
+<button type="button" id="getData">Get Data</button>
+
+<script type="text/javascript">
+    // Id's 
+    $(document).ready(function() {
+        $('#wrapper').css('width', 500)
+        $('#wrapper').css('margin', 'auto')
+        $('#logo2').css('float', 'left')
+        $('#p_two').css('color', 'blue')
+        $('#p_two').css({
+            'background': "url('repeatBkgrnd.png') repeat-y"
+        })
+
+        // All links
+        $('a').css('color', 'purple')
+        // All a inside the #tableData
+        $('#tableData a').css('color', 'blue')
+        // Every link after an em tag
+        $('em + a').css('color', 'orange')
+        // Children elements 
+        $('p > em').css('color', 'grey')
+        $('#oListIndent li:nth-child(1)').css('text-decoration', 'underline')
+        // With an attribute
+        $('li[name]').html('In the five position: and the goblet of fire')
+        // Change the value of a specific input 
+        $('input[type="text"]#yourName').val('Gui')
+        // Containing a value does not matther where 
+        $('a[href*="google"]').css('font-weight', 'bolder')
+        // Searching the value in the beggining 
+        $('img[alt^="NTT"]').css({
+            'border-color': 'black', 
+            'border-width': '1px',
+            'border-style': 'solid',
+            'margin': '0 10px' 
+        }) 
+
+        // ENDS with 'pdf'
+        $('a[href$="pdf"]').css('color', 'green')
+
+        $('#tableData tr:odd').css('background-color', '#DDD')
+        $('#tableData tr:even').css('background-color', '#EEE')
+
+        $('#tableData tr:first').css({
+            'background-color': 'blue',
+            'color': 'white'
+        })
+        // An li that does not contain the word 'and'
+        $('#oListTypes li:not(:contains(and))').css('color', 'blue')
+        // Hide all p elements that contain an 'i' tag 
+        $('p:has(i)').hide() 
+        // Show the previous element with the text changed 
+        $('p:has(i)').html('<i>Here goes the new text!</i>').show()
+        // Append an element - Prepend for the beggining 
+        $('p:has(i)').append('... with an append!')
+        // Html elements before an after a tag 
+        $('p:has(i)').before('<p id="before_p">A new "before" paragrapah. CLICK ME!</p>')
+        $('p:has(i)').after('<p id="after_p">A new "after" paragrapah</p>')
+
+        // Function to the created elemement 
+        $('#after_p').click(function() {
+            $(this).remove()
+        })
+
+        $('#before_p').click(function() {
+            $(this).replaceWith('<p>Text replaced!</p>')
+        })
+
+        $('#oListIndent li').each(function(index) {
+            let inputListStuff = $('#listStuff').val()
+            $('#listStuff').val(inputListStuff + ", " + $(this).text())
+        })
+
+        /*********** Changing elements attributes ***********/
+        $('#oListIndent li').addClass('Harry_Potter')
+        $('.Harry_Potter').css('color', '#36454F')
+
+        $('#oListIndent li').click(function() {
+            $(this).toggleClass('highlight')
+
+            let backcolor = $(this).css('background-color')
+            $('input[type=text]#yourName').val(backcolor)
+        })
+
+        $('#logo2').click(function() {
+            //get the src attribute of the element 
+            let imgName = $(this).attr('src')
+            $('input[type=text]#logo').val(imgName)
+        })
+
+        $("#logo2").mouseover(function() {
+            $(this).attr('src', 'ntt-logo-horz.png')
+        })
+
+        $("#logo2").mouseout(function() {
+            $(this).attr('src', 'ntt-logo.png')
+        })
+
+        $('h2').hover(function() {
+            $(this).css('color', 'green')
+        }, function() {
+            $('h2').css('color', 'black')
+        })
+
+        $('#logo2').dblclick(function() {
+            $(this).attr('src', 'ntt-logo-plastic.png')
+        })
+
+        /************* Tracking Events ***************/
+        $(document).click(function(e) {
+            $('#mClickXPos').val(e.pageX)
+            $('#mClickYPos').val(e.pageY)
+        })
+
+        $(document).mousemove(function(e) {
+            $('#mMoveXPos').val(e.pageX)
+            $('#mMoveYPos').val(e.pageY)
+        })
+
+        $(document).keypress(function(e) {
+            let keyPressed = String.fromCharCode(e.which)
+            $('#keyPressed').val(keyPressed)
+        })
+
+        /*********** Form Events ***********/
+        // Click outside after the input box 
+        $('#inputFormEvent').blur(function() {
+            $('#formEvent').text('Gone')
+        })
+
+        $('#inputFormEvent').focus(function() {
+            $('#formEvent').text('Element focused')
+        })
+
+        $('#inputFormEvent').select(function() {
+            $('#formEvent').text('Element selected')
+        })
+
+        /*********** Multiple Events ***********/
+        function showWhatTouched(e) {
+           /*  alert(e.data.message) */
+        }
+
+        let bsMsg = { message: 'Best selling' }
+        let teMsg = { message: 'Track events' }
+
+        $('#bestSelling').on('mouseover', bsMsg, showWhatTouched)
+        $('#trackEvents').on('mouseover', teMsg, showWhatTouched)
+
+        /************** Slideshow **************/
+        let accidentImgs = ['1.jpg','2.jpg','3.jpg','4.jpg']
+        let i = 1
+
+        $('#accident').click(function() {
+            let image = accidentImgs[i]
+            i++
+            if(i > 3) {
+                i = 0
+            }
+            $('#accident').attr('src', image)
+        })
+
+        /******* Animations *******/
+        $('#p_one').click(function() {
+            $('#p_two').fadeOut(2000)
+        })
+
+        $('#logo2').click(function() {
+            $(this).fadeTo('slow', .5)
+        })
+
+        $('#p_one').click(function() {
+            $(this).css('position', 'relative')
+
+            $('#p_one').animate({
+                left: 300,
+                opacity: .5, 
+                'font-size': '22px', 
+                width: 300  
+            }, 2000, 'easeInQuad', function() {
+                alert('All done!')
+            })
+        })
+
+    }) /* End of jQuery code */
+</script>
+
+
+</script>
+
+</div> <!-- End of wrapper -->
+
+<!-- Most common CSS attributes
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+  background, background-attachment, background-color, background-image, background-repeat, border, border-bottom, border-color, border-style, border-bottom-color, border-bottom-style, border-bottom-width, border-left-color, border-left-style, border-left-width, border-right-color, border-right-style, border-right-width, border-top-color, border-top-style, border-top-width, box-shadow, color, columns, direction, float, font-family, font-size, font-style, font-weight, height, letter-spacing, line-height, list-style-type, list-style-image, list-style-position, margin, margin-bottom, margin-top, margin-right,margin-left, opacity, padding-bottom, padding-top, padding-right, padding-left, text-align, text-decoration, text-decoration-color, text-decoration-line, text-decoration-style, text-indent, text-orientation, text-shadow, text-transform, vertical-align, visibility, width, word-spacing, z-index
+  -->
+</body>
+</html>
